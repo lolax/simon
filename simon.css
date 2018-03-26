@@ -1,0 +1,57 @@
+#title {
+  text-align: center;
+  margin-top: 20vh;
+  font-size: 30px;
+}
+
+#grid {
+  display: grid;
+  grid-template-rows: [r1]70px [r2] 70px [r3] 70px [r4];
+  grid-template-columns: [c1] 70px [c2] 70px [c3];
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10vh;
+  font-size: 30px;
+}
+
+.box {
+  outline: 1px solid black;
+}
+
+#start {
+  grid-column: c1 / c3;
+  grid-row: r1 / r2;
+}
+
+#one {
+  grid-column: c1 / c2;
+  grid-row: r2 / r3;
+}
+
+#two {
+  grid-column: c2 / c3;
+  grid-row: r2 / r3;
+}
+
+#three {
+  grid-column: c1 / c2;
+  grid-row: r3 / r4;
+}
+
+#four {
+  grid-column: c2 / c3;
+  grid row: r3 / r4;
+}
+
+#count {
+  text-align: center;
+  margin-top: 10vh;
+  font-size: 30px;
+}
+
+#msg {
+  text-align: center;
+  margin-top: 10vh;
+  font-size: 30px;
+}

@@ -1,0 +1,17 @@
+when the game starts (regular mode)
+
+addition and playback: (one color button is randomly chosen and added to the series
+the series is played back)
+
+series count is displayed
+
+the user is meant to repeat the series
+
+if they do then repeat addition and playback function
+if not then I'm notified that I messed up and it plays back the most recent series
+
+if series count === 20 then the user wins and is notified, then the game restarts
+
+when the game starts (strict mode)
+
+all the same except a wrong mode results in a loss and restarts
