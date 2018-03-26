@@ -76,12 +76,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if (userSeries.length === series.length) {
       if (isWon()) {
         document.getElementById("msg").innerText = "you win!";
-        isUserTurn = false;
         setTimeout(() => restart(), 3000);
       } else {
+        isUserTurn = false;
         startRound();
       }
-      isUserTurn = false;
     }
   }
 
@@ -95,11 +94,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     return won;
   }
-});
 
-function restart() {
-  series = [];
-  userSeries = [];
-  seriesCount = 0;
-  startRound();
-}
+  function restart() {
+    series = [];
+    userSeries = [];
+    seriesCount = 0;
+    startRound();
+  }
+});
