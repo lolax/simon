@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   let userSeries = [];
   let seriesCount = 0;
   let isUserTurn = false;
+  let gamesBegun = false;
 
   document.getElementById("one").addEventListener('click', () => pushAndCheck(1, userSeries));
   document.getElementById("two").addEventListener('click', () => pushAndCheck(2, userSeries));
@@ -11,12 +12,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("four").addEventListener('click', () => pushAndCheck(4, userSeries));
 
   document.getElementById("start").addEventListener('click', function() {
-    startRound();
+    gamesBegun ? restart() : startRound();
   });
 
   function startRound() {
+    gamesBegun = true;
     updateDisplay();
-    document.getElementById("msg").innerText = "repeat after me";
+    document.getElementById("msg").innerText = "simon says: repeat after me";
+    document.getElementById("start").innerText = "restart";
     addition();
     userTurn();
   }
@@ -85,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   function wrongMove() {
-    document.getElementById("msg").innerText = "wrong move, buddy, try again!";
+    document.getElementById("msg").innerText = "simon says: wrong move, buddy, try again!";
     playSeries();
     userTurn();
     // if (strictMode) restart round
@@ -94,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   function matchComplete() {
     if (userSeries.length === series.length) {
       if (seriesCount === 3) {
-        document.getElementById("msg").innerText = "you win!";
+        document.getElementById("msg").innerText = "simon says: you win!";
         setTimeout(() => restart(), 3000);
       } else {
         isUserTurn = false;

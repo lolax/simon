@@ -8,7 +8,8 @@ the series is played back)
 ~ if series count === 20 then the user wins and is notified, then the game restarts
 
 to do:
-- fix shapes
+
+- fix start button bug
 - pick better colors
 - pick better font
 - add strict mode

@@ -1,3 +1,7 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
 #title {
   text-align: center;
   margin-top: 10vh;
@@ -6,61 +10,71 @@
 
 #grid {
   display: grid;
-  grid-template-rows: [r1] 150px [r2] 200px [r3] 200px [r4];
+  grid-template-rows: [r2] 200px [r3] 200px [r4];
   grid-template-columns: [c1] 200px [c2] 200px [c3];
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 8vh;
-  font-size: 30px;
+  margin-top: 5vh;
 }
 
 #start {
-  outline: 1px solid black;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8vh;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
   cursor: pointer;
-  background-color: #f0f8ff;
-  grid-column: c1 / c3;
-  grid-row: r1 / r2;
+  text-align: center;
+  font-size: 24px;
 }
 
 #one {
   grid-column: c1 / c2;
   grid-row: r2 / r3;
-  background-color: #006600;
+  background-color: #2f924f;
   cursor: pointer;
 }
 
 #two {
   grid-column: c2 / c3;
   grid-row: r2 / r3;
-  background-color: #aa001e;
+  background-color: #99001b;
   cursor: pointer;
 }
 
 #three {
   grid-column: c1 / c2;
   grid-row: r3 / r4;
-  background-color: #f9d714;
+  background-color: #ead140;
   cursor: pointer;
 }
 
 #four {
   grid-column: c2 / c3;
   grid row: r3 / r4;
-  background-color: #2828cc;
+  background-color: #3c64f2;
   cursor: pointer;
 }
 
 #count {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
   text-align: center;
   margin-top: 8vh;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 #msg {
   text-align: center;
-  margin-top: 8vh;
-  font-size: 30px;
+  margin-top: 3vh;
+  font-size: 24px;
 }
 
 .lighten {
