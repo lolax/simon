@@ -14,4 +14,4 @@ if series count === 20 then the user wins and is notified, then the game restart
 
 when the game starts (strict mode)
 
-all the same except a wrong mode results in a loss and restarts
+all the same except a wrong move results in a loss and restarts

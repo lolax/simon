@@ -27,21 +27,25 @@
 #one {
   grid-column: c1 / c2;
   grid-row: r2 / r3;
+  background-color: #006600;
 }
 
 #two {
   grid-column: c2 / c3;
   grid-row: r2 / r3;
+  background-color: #aa001e;
 }
 
 #three {
   grid-column: c1 / c2;
   grid-row: r3 / r4;
+  background-color: #f9d714;
 }
 
 #four {
   grid-column: c2 / c3;
   grid row: r3 / r4;
+  background-color: #2828cc;
 }
 
 #count {
@@ -54,4 +58,8 @@
   text-align: center;
   margin-top: 10vh;
   font-size: 30px;
+}
+
+.lighten {
+  filter: brightness(200%);
 }

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   let userSeries = [];
   let seriesCount = 0;
   let isUserTurn = false;
-  let won = false;
+
   document.getElementById("one").addEventListener('click', () => pushAndCheck(1, userSeries));
   document.getElementById("two").addEventListener('click', () => pushAndCheck(2, userSeries));
   document.getElementById("three").addEventListener('click', () => pushAndCheck(3, userSeries));
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   function addition() {
     series.push(Math.floor(Math.random() * Math.floor(4)) + 1);
-    playSeries();
+    setTimeout(() => playSeries(), 700);
     console.log(series);
     seriesCount += 1;
     updateDisplay();
@@ -44,12 +44,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
       3: 392,
       4: 440
     }
+
+    idMap = {
+      1: "one",
+      2: "two",
+      3: "three",
+      4: "four"
+    }
+
     let osc = ctx.createOscillator();
     osc.frequency.value = freqMap[el];
     osc.connect(ctx.destination);
     let currentTime = ctx.currentTime;
     osc.start(currentTime);
+    lighten(idMap[el]);
+    setTimeout(() => unlighten(idMap[el]), 500);
     osc.stop(currentTime + 0.5);
+  }
+
+  function lighten(id) {
+    document.getElementById(id).classList.add("lighten");
+  }
+
+  function unlighten(id) {
+    document.getElementById(id).classList.remove("lighten");
   }
 
   function userTurn() {
@@ -67,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   function wrongMove() {
+    document.getElementById("msg").innerText = "wrong move, buddy, try again!";
     playSeries();
     userTurn();
     // if (strictMode) restart round
@@ -74,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   function matchComplete() {
     if (userSeries.length === series.length) {
-      if (isWon()) {
+      if (seriesCount === 3) {
         document.getElementById("msg").innerText = "you win!";
         setTimeout(() => restart(), 3000);
       } else {
@@ -82,17 +101,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         startRound();
       }
     }
-  }
-
-  function isWon() {
-    if (seriesCount === 3) {
-      won = true;
-      console.log(won);
-    } else {
-      won = false;
-      console.log(won);
-    }
-    return won;
   }
 
   function restart() {
