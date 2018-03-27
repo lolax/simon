@@ -1,25 +1,24 @@
 #title {
   text-align: center;
-  margin-top: 20vh;
+  margin-top: 10vh;
   font-size: 30px;
 }
 
 #grid {
   display: grid;
-  grid-template-rows: [r1]70px [r2] 70px [r3] 70px [r4];
-  grid-template-columns: [c1] 70px [c2] 70px [c3];
+  grid-template-rows: [r1] 150px [r2] 200px [r3] 200px [r4];
+  grid-template-columns: [c1] 200px [c2] 200px [c3];
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 8vh;
   font-size: 30px;
 }
 
-.box {
-  outline: 1px solid black;
-}
-
 #start {
+  outline: 1px solid black;
+  cursor: pointer;
+  background-color: #f0f8ff;
   grid-column: c1 / c3;
   grid-row: r1 / r2;
 }
@@ -28,38 +27,66 @@
   grid-column: c1 / c2;
   grid-row: r2 / r3;
   background-color: #006600;
+  cursor: pointer;
 }
 
 #two {
   grid-column: c2 / c3;
   grid-row: r2 / r3;
   background-color: #aa001e;
+  cursor: pointer;
 }
 
 #three {
   grid-column: c1 / c2;
   grid-row: r3 / r4;
   background-color: #f9d714;
+  cursor: pointer;
 }
 
 #four {
   grid-column: c2 / c3;
   grid row: r3 / r4;
   background-color: #2828cc;
+  cursor: pointer;
 }
 
 #count {
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 8vh;
   font-size: 30px;
 }
 
 #msg {
   text-align: center;
-  margin-top: 10vh;
+  margin-top: 8vh;
   font-size: 30px;
 }
 
 .lighten {
   filter: brightness(200%);
+}
+
+.quarterCircleTopLeft{
+     width:200px;
+     height:200px;
+     border-radius: 200px 0 0 0;
+}
+
+.quarterCircleTopRight{
+     width:200px;
+     height:200px;
+     border-radius: 0 200px 0 0;
+}
+
+.quarterCircleBottomLeft{
+     width:200px;
+     height:200px;
+     border-radius: 0 0 200px 0;
+}
+
+.quarterCircleBottomRight{
+     width:200px;
+     height:200px;
+     border-radius: 0 0 0 200px;
 }
