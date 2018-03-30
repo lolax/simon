@@ -9,7 +9,8 @@ the series is played back)
 
 to do:
 
-- fix start button bug
-- pick better colors
-- pick better font
 - add strict mode
+
+ extra:
+
+ - fix overlapping sounds

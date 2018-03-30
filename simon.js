@@ -5,15 +5,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
   let seriesCount = 0;
   let isUserTurn = false;
   let gamesBegun = false;
+  let strictMode = false;
 
   document.getElementById("one").addEventListener('click', () => pushAndCheck(1, userSeries));
   document.getElementById("two").addEventListener('click', () => pushAndCheck(2, userSeries));
   document.getElementById("three").addEventListener('click', () => pushAndCheck(3, userSeries));
   document.getElementById("four").addEventListener('click', () => pushAndCheck(4, userSeries));
+  document.getElementById("strict").addEventListener('click', () => strictToggle());
 
   document.getElementById("start").addEventListener('click', function() {
     gamesBegun ? restart() : startRound();
   });
+
+  function strictToggle() {
+    strictMode = !strictMode;
+    if (strictMode) {
+      document.getElementById("strict").innerText = "strict: on";
+    } else {
+      document.getElementById("strict").innerText = "strict: off";
+    }
+  }
 
   function startRound() {
     gamesBegun = true;
@@ -27,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   function addition() {
     series.push(Math.floor(Math.random() * Math.floor(4)) + 1);
     setTimeout(() => playSeries(), 700);
-    console.log(series);
     seriesCount += 1;
     updateDisplay();
   }
@@ -37,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   function playSeries() {
-    series.map((el, ind) => setTimeout(() => playSound(el), 500 * (ind + 1)));
+    series.map((el, ind) => setTimeout(() => playSound(el), 700 * (ind + 1)));
   }
 
   function playSound(el) {
@@ -88,10 +98,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   function wrongMove() {
-    document.getElementById("msg").innerText = "simon says: wrong move, buddy, try again!";
-    playSeries();
-    userTurn();
-    // if (strictMode) restart round
+    if (strictMode) {
+      document.getElementById("msg").innerText = "simon says: wrong move, buddy, you lost!";
+      setTimeout(() => restart(), 3000)
+    } else {
+      document.getElementById("msg").innerText = "simon says: wrong move, buddy, try again!";
+      playSeries();
+      userTurn();
+    }
   }
 
   function matchComplete() {
